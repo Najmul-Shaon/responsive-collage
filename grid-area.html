@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Layout Area</title>
+    <style>
+      .header,
+      .nav,
+      .main,
+      .sidebar,
+      .advertise,
+      .footer {
+        background-color: gray;
+        border: 2px solid salmon;
+        padding: 5px;
+        border-radius: 5px;
+      }
+      .header {
+        grid-area: header;
+      }
+      .nav {
+        grid-area: nav;
+      }
+      .main {
+        grid-area: main;
+      }
+      .sidebar {
+        grid-area: sidebar;
+      }
+      .advertise {
+        grid-area: advertise;
+      }
+      .footer {
+        grid-area: footer;
+      }
+      .container {
+        display: grid;
+        gap: 20px;
+        grid-template-areas:
+          "header   header  header  header"
+          "nav      main    main    sidebar"
+          "nav      main    main    advertise"
+          "footer   footer  footer  footer";
+      }
+
+      @media screen and (max-width: 576px) {
+        .container {
+          grid-template-areas:
+            "header"
+            "nav"
+            "main"
+            "sidebar"
+            "adverstise"
+            "footer";
+        }
+      }
+      @media screen and (min-width: 576px) and (max-width: 992px) {
+        .container {
+          grid-template-areas:
+            "header header header"
+            "nav nav nav"
+            "main main sidebar"
+            "adverstise footer footer";
+        }
+        .nav ul {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+  <body class="container">
+    <header class="header">
+      <h3>The header</h3>
+    </header>
+    <nav class="nav">
+      <ul>
+        <li><a href="">Nav 1</a></li>
+        <li><a href="">Nav 2</a></li>
+        <li><a href="">Nav 3</a></li>
+      </ul>
+    </nav>
+    <main class="main">
+      <artivle>
+        <h3>Main article 1</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo
+          officiis rem quis laudantium nostrum eum doloremque eaque, animi
+          labore dolorem veniam dolor beatae facilis nobis ipsam numquam
+          voluptatibus repellendus repudiandae.
+        </p>
+      </artivle>
+      <artivle>
+        <h3>Main article 2</h3>
+        <p>
+          Quasi, assumenda architecto sint reiciendis tempora consequatur harum?
+          Odio temporibus possimus a pariatur sequi! Molestiae accusamus veniam
+          optio nisi praesentium dolorum sit, tempora, veritatis, laborum
+          assumenda dignissimos pariatur illum earum?
+        </p>
+      </artivle>
+    </main>
+    <aside>
+      <div class="sidebar">
+        <h4>Sidebar</h4>
+      </div>
+      <div class="advertise">
+        <h4>Advertise</h4>
+      </div>
+    </aside>
+    <footer class="footer">
+      <h3>The footer</h3>
+    </footer>
+  </body>
+</html>
